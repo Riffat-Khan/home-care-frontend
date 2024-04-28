@@ -26,7 +26,6 @@ export default function ZeroWidthStack() {
         sx={{
           my: 1,
           mx: 'auto',
-          p: 2,
         }}
       >
         <Stack spacing={2} direction="row" alignItems="center">

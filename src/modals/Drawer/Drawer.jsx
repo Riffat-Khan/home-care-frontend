@@ -13,24 +13,11 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import logoTrans from "../../assets/images/logo_trans.png";
-import MonitorHeartIcon from "@mui/icons-material/MonitorHeart";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import RuleIcon from "@mui/icons-material/Rule";
-import ReviewsIcon from "@mui/icons-material/Reviews";
-import SettingsIcon from "@mui/icons-material/Settings";
-import LogoutIcon from "@mui/icons-material/Logout";
 import ResponsiveAppBar from "../../modals/MenuBar/MenuBar"
 
 const drawerWidth = 240;
-const iconArray = [
-  <DashboardIcon />,
-  <RuleIcon />,
-  <MonitorHeartIcon />,
-  <ReviewsIcon />,
-];
-const IconArray = [<SettingsIcon />, <LogoutIcon />];
 
-export default function PermanentDrawerLeft({ heading, screen }) {
+export default function PermanentDrawerLeft({ SideBarContent , TopiconArray , SecIconArray ,heading, screen }) {
   return (
     <Box>
       <CssBaseline />
@@ -61,16 +48,11 @@ export default function PermanentDrawerLeft({ heading, screen }) {
         <img className="" src={logoTrans} alt="logo" />
         <Toolbar />
         <List sx={{ marginTop: "-50px", color: "white" }}>
-          {[
-            { text: "DASHBOARD", link: "/profile-dashboard" },
-            { text: "ISSUES", link: "/profile-issues" },
-            { text: "VITALS", link: "/profile-vitals" },
-            { text: "REVIEWS", link: "/profile-reviews" },
-          ].map(({ text, link }, index) => (
+          {SideBarContent.map(({ text, link }, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton component={Link} to={link}>
                 <ListItemIcon sx={{ color: "white" }} key={index}>
-                  {iconArray[index % iconArray.length]}
+                  {TopiconArray[index % TopiconArray.length]}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -83,7 +65,7 @@ export default function PermanentDrawerLeft({ heading, screen }) {
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon sx={{ color: "white" }} key={index}>
-                  {IconArray[index % IconArray.length]}
+                  {SecIconArray[index % SecIconArray.length]}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
